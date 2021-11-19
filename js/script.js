@@ -45,6 +45,7 @@ const btnAdd = document.getElementById("addMemberButton");
 console.log("Membri del team:");
 stampaCard(team, teamContainer);
 
+//STAMPA 
 function stampaCard(array, container) {
     container.innerHTML = "";
     for (i = 0; i < array.length; i++) {
@@ -64,3 +65,23 @@ function stampaCard(array, container) {
         console.log(`${array[i].nome} - ${array[i].ruolo}`);
     }
 }
+
+// INSERIMENTO ADD A NEW MEMBER
+btnAdd.addEventListener("click", function () {
+    const newName = document.getElementById("name");
+    const newRole = document.getElementById("role");
+    const newImg = document.getElementById("image");
+
+
+    const newNameMember = newName.value;
+    const newRoleMember = newRole.value;
+    const newImgMember = newImg.value;
+
+    team.push({
+        'nome': newNameMember,
+        'ruolo': newRoleMember,
+        'img': newImgMember,
+    });
+    console.clear();
+    stampaCard(team, teamContainer);
+});
